@@ -1,4 +1,4 @@
-# Project 2: Edge-Based Face Recognition Pipeline
+# Project: Edge-Based Face Recognition Pipeline
 
 This repository implements a distributed face recognition pipeline using AWS IoT Greengrass, AWS Lambda, and supporting services (SQS, ECR). It extends the serverless solution from Part I by moving face detection to the edge (Greengrass Core) and keeping face recognition in the cloud.
 
@@ -28,7 +28,7 @@ This repository implements a distributed face recognition pipeline using AWS IoT
 
 * **Face Recognition (Lambda)**
 
-  * `fr_lambda.py`: consumes SQS messages, loads FaceNet model, performs classification.
+  * `fr_lambda.py`: consumes SQS messages, loads the FaceNet model, and performs classification.
   * Uses `resnetV1_video_weights.pt` for pretrained embeddings.
 
 * **Container & Dependencies**
@@ -42,10 +42,10 @@ This repository implements a distributed face recognition pipeline using AWS IoT
 
    ```bash
    # build
-   docker build -t face-pipeline:latest .
+   docker build -t face-pipeline: latest.
    # tag & push to ECR
-   aws ecr create-repository --repository-name face-pipeline
-   docker tag face-pipeline:latest <aws_account>.dkr.ecr.us-east-1.amazonaws.com/face-pipeline:latest
+   aws ecr create-repository-- repository-name face-pipeline
+   docker tag face-pipeline: latest <aws_account>.dkr.ecr.us-east-1.amazonaws.com/face-pipeline:latest
    aws ecr get-login-password | docker login --username AWS --password-stdin <aws_account>.dkr.ecr.us-east-1.amazonaws.com
    docker push <...>/face-pipeline:latest
    ```
@@ -78,6 +78,6 @@ This repository implements a distributed face recognition pipeline using AWS IoT
 
 ## Notes
 
-* Models and weights are loaded lazily (cold start) then cached in Lambda/ECR container.
+* Models and weights are loaded lazily (cold start) and then cached in a Lambda/ECR container.
 * Face detection uses CoW snapshots for rapid Greengrass component updates.
 * Ensure all AWS resources (Core, Client, SQS queues, Lambda) are in `us-east-1`.
