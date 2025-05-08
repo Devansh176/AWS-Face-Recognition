@@ -1,0 +1,8 @@
+boto3
+requests>=2.0.0,<3.0.0
+Pillow>=10.2.0,<10.3.0
+opencv-python
+awslambdaric
+numpy>=1.24.0,<2.0.0
+tqdm>=4.0.0,<5.0.0
+loguru
