@@ -14,8 +14,8 @@ ENV TORCH_HOME=/tmp/.cache/torch
 ENV XDG_CACHE_HOME=/tmp/.cache/torch
 
 COPY resnetV1_video_weights.pt .
-COPY face-detection/fd_lambda.py .
-COPY face-recognition/fr_lambda.py .
+COPY fd_lambda.py .
+COPY fr_lambda.py .
 
 ENTRYPOINT [ "/usr/local/bin/python", "-m", "awslambdaric" ]
 CMD ["fd_lambda.face_detection_func"]

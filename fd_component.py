@@ -15,8 +15,8 @@ sqs = boto3.client(
     aws_access_key_id="",
     aws_secret_access_key=""
 )
-REQUEST_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/156081010342/1233725170-req-queue'
-RESPONSE_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/156081010342/1233725170-resp-queue'
+# REQUEST_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/156081010342/1233725170-req-queue'
+# RESPONSE_QUEUE_URL = 'https://sqs.us-east-1.amazonaws.com/156081010342/1233725170-resp-queue'
 mtcnn = MTCNN(image_size=240, margin=0, min_face_size=20)
 
 mqtt_connection = mqtt_connection_builder.mtls_from_path(
