@@ -44,7 +44,7 @@ This repository implements a distributed face recognition pipeline using AWS IoT
    # build
    docker build -t face-pipeline: latest.
    # tag & push to ECR
-   aws ecr create-repository-- repository-name face-pipeline
+   AWS ECR create-repository-- repository-name face-pipeline
    docker tag face-pipeline: latest <aws_account>.dkr.ecr.us-east-1.amazonaws.com/face-pipeline:latest
    aws ecr get-login-password | docker login --username AWS --password-stdin <aws_account>.dkr.ecr.us-east-1.amazonaws.com
    docker push <...>/face-pipeline:latest
@@ -74,7 +74,7 @@ This repository implements a distributed face recognition pipeline using AWS IoT
 
    * Publish sample frames via AWS IoT MQTT test client.
    * Monitor `/greengrass/v2/logs/com.clientdevices.FaceDetection.log` on core.
-   * Verify messages in SQS response and output on device.
+   * Verify messages in the SQS response and output them on the device.
 
 ## Notes
 
